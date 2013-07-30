@@ -1,6 +1,6 @@
 name: postgis
 version: 0.0.1
-inherits: wercker/postgresql@0.04
+inherits: wercker/postgresql@0.0.4
 type: service
 platform: ubuntu@12.04
 description: wercker box for postgis install via the ubuntugis ppa
