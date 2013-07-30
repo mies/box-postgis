@@ -1,5 +1,5 @@
 name: postgis
-version: 0.0.2
+version: 0.0.3
 inherits: wercker/postgresql@0.0.4
 type: service
 platform: ubuntu@12.04
@@ -14,6 +14,7 @@ packages:
   - postgresql@9.1
   - postgis
 env:
+  WERCKER_POSTGRESQL_HOST: $$HOST$$
   WERCKER_POSTGRESQL_USERNAME: postgres
   WERCKER_POSTGRESQL_PASSWORD: wercker
   WERCKER_POSTGRESQL_PORT: 5432
