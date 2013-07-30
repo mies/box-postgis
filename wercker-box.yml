@@ -1,5 +1,6 @@
 name: postgis
 version: 0.0.1
+inherits: wercker/postgresql@0.04
 type: service
 platform: ubuntu@12.04
 description: wercker box for postgis install via the ubuntugis ppa
@@ -13,10 +14,8 @@ packages:
   - postgresql@9.1
   - postgis
 script: |
-  sudo apt-get install python-software-properties
-  sudo apt-add-repository ppa:ubuntugis/ppa
-  sudo apt-get update
-  sudo apt-get install postgresql-9.1-postgis
+  PGPASSWORD=wercker psql -h $WERCKER_POSTGRESQL_HOST -p $WERCKER_POSTGRESQL_PORT -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
+  PGPASSWORD=wercker psql -h $WERCKER_POSTGRESQL_HOST -p $WERCKER_POSTGRESQL_PORT -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
 env:
   WERCKER_POSTGRESQL_USERNAME: postgres
   WERCKER_POSTGRESQL_PASSWORD: wercker
