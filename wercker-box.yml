@@ -16,9 +16,9 @@ packages:
 script: |
   sudo apt-get update
   sudo apt-get install -y python-software-properties
-  sudo apt-add-repository ppa:ubuntugis/ppa
+  sudo apt-add-repository -y ppa:ubuntugis/ppa
   sudo apt-get update
-  sudo apt-get install postgis
+  sudo apt-get install -y postgis
   
   PGPASSWORD=wercker psql -h localhost -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
   PGPASSWORD=wercker psql -h localhost -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
