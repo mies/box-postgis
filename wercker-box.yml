@@ -21,7 +21,7 @@ env:
   WERCKER_POSTGRESQL_DATABASE: werckerdb1
   WERCKER_POSTGRESQL_URL: postgres://postgres:wercker@$$HOST$$:5432/werckerdb1
 script: |
-  sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
+  echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" | sudo tee -a /etc/apt/sources.list.d/postgresql.list
   wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
    
   apt-get install libgeos-dev libproj-dev libgdal-dev -y -q
