@@ -1,0 +1,19 @@
+name: postgis
+version: 0.0.1
+type: service
+platform: ubuntu@12.04
+description: wercker box for postgis install via the ubuntugis ppa
+keywords:
+  - postgist
+  - gis
+  - geo
+  - postgresql
+packages:
+  - python-software-properties
+  - postgresql@9.1
+  - postgis
+script: |
+  sudo apt-get install python-software-properties
+  sudo apt-add-repository ppa:ubuntugis/ppa
+  sudo apt-get update
+  sudo apt-get install postgresql-9.1-postgis
