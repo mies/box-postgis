@@ -1,5 +1,11 @@
 # PostGIS box for wercker
 
+usage:
+
+in your wercker.yml file:
+
+box: mies/postgis
+
 current build status:
 
 [![wercker
