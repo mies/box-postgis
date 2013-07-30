@@ -1,5 +1,5 @@
 name: postgis
-version: 0.0.1
+version: 0.0.2
 inherits: wercker/postgresql@0.0.4
 type: service
 platform: ubuntu@12.04
