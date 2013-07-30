@@ -14,5 +14,5 @@ packages:
   - postgresql@9.1
   - postgis
 script: |
-  PGPASSWORD=wercker psql -h $WERCKER_POSTGRESQL_HOST -p $WERCKER_POSTGRESQL_PORT -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
-  PGPASSWORD=wercker psql -h $WERCKER_POSTGRESQL_HOST -p $WERCKER_POSTGRESQL_PORT -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
+  PGPASSWORD=wercker psql -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
+  PGPASSWORD=wercker psql -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
