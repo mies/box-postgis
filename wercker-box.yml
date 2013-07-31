@@ -1,5 +1,5 @@
 name: postgis
-version: 0.0.3
+version: 0.0.4
 inherits: wercker/postgresql@0.0.4
 type: service
 platform: ubuntu@12.04
@@ -20,12 +20,16 @@ env:
   WERCKER_POSTGRESQL_PORT: 5432
   WERCKER_POSTGRESQL_DATABASE: werckerdb1
   WERCKER_POSTGRESQL_URL: postgres://postgres:wercker@$$HOST$$:5432/werckerdb1
+  PGHOST: $$HOST$$
+  PGPORT: 5432
+  PGDATABASE: werckerdb1
+  PGUSER: postgres
+  PGPASSWORD: wercker
 script: |
   sudo apt-get update
   sudo apt-get install -y python-software-properties
   sudo apt-add-repository -y ppa:ubuntugis/ppa
   sudo apt-get update
   sudo apt-get install -y postgis
-  
   PGPASSWORD=wercker psql -h localhost -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
   PGPASSWORD=wercker psql -h localhost -U postgres -d werckerdb1 -c 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
