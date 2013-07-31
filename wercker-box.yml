@@ -1,5 +1,5 @@
 name: postgis
-version: 0.0.4
+version: 0.0.5
 inherits: wercker/postgresql@0.0.4
 type: service
 platform: ubuntu@12.04
@@ -25,6 +25,7 @@ env:
   PGDATABASE: werckerdb1
   PGUSER: postgres
   PGPASSWORD: wercker
+  POSTGIS_SQL_PATH: `pg_config --sharedir`/contrib/postgis-2.0
 script: |
   sudo apt-get update
   sudo apt-get install -y python-software-properties
